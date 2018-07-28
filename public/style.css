@@ -1,0 +1,11 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#game {
+  border: 4px solid #fff;
+  height: 80vh;
+}
