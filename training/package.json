@@ -9,5 +9,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "genetic-js": "git+https://github.com/Loonride/genetic-js.git"
+  }
 }
