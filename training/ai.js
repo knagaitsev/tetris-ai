@@ -1,20 +1,24 @@
 var Player = require("./player.js");
 var Grid = require("./grid.js");
 
+/*
+Importance of clearing lines should increase with height (linear function)
+Cleared lines should be removed when considering holes and bumpiness
+Rows with holes should be considered (as in if there are multiple holes in one row, it doesn't matter as much)
+*/
+
 class AI extends Player {
     constructor(canvas, training, weights) {
         super(canvas);
-        //parameters: heightSum, completedLines, holes, bumpiness
+        //old parameters: heightSum, completedLines, holes, bumpiness
+        //new params: completedLinesMin, completedLinesMax, holes, bumpiness, rowsWithHoles
         this.weights = weights;
-        this.heightSumWeight = weights.heightSum;
-        this.completedLinesWeight = weights.completedLines;
-        this.holesWeight = weights.holes;
-        this.bumpinessWeight = weights.bumpiness;
 
         this.score = 0;
         this.pieceCount = 0;
 
-        this.maxPieceCount = 500;
+        this.maxPieceCount = undefined;
+        this.maxScore = 100000;
 
         if (training) {
             //this.fitness = this.determineFitness();
@@ -55,7 +59,7 @@ class AI extends Player {
                     if (self.scoreElt) {
                         self.scoreElt.innerHTML = self.score;
                     }
-                    if (colliding) {
+                    if (colliding || self.score >= self.maxScore) {
                         end = true;
                     }
                 })) {
@@ -220,17 +224,30 @@ class AI extends Player {
         this.position.y = 0;
     }
 
+    completedLinesScore(completedLines, currentHeight, maxHeight) {
+        var min = this.weights.completedLinesMin;
+        var max = this.weights.completedLinesMax;
+        var weight = min + ((currentHeight / maxHeight) * (max - min));
+        return completedLines * weight;
+    }
+
     getMoveScore() {
-        var heightSum = this.grid.getHeightSum();
+        //var heightSum = this.grid.getHeightSum();
         var completedLines = this.grid.getFullCount();
         var holes = this.grid.getHoleCount();
         var bumpiness = this.grid.getBumpiness();
+        var rowsWithHoles = this.grid.getRowsWithHoles();
+
+        var currentHeight = this.grid.getCurrentHeight();
+        var maxHeight = this.grid.getGridHeight();
+
         // console.log("height sum: " + heightSum);
         // console.log("completed lines: " + completedLines);
         // console.log("holes: " + holes);
         // console.log("bumpiness: " + bumpiness);
-        var score = - (this.heightSumWeight * heightSum) + (this.completedLinesWeight * completedLines)
-            - (this.holesWeight * holes) - (this.bumpinessWeight * bumpiness);
+        var score = this.completedLinesScore(completedLines, currentHeight, maxHeight)
+            - (this.weights.holes * holes) - (this.weights.bumpiness * bumpiness)
+            - (this.weights.rowsWithHoles * rowsWithHoles);
         
         return score;
     }
@@ -243,7 +260,7 @@ class AI extends Player {
 
     determineFitness() {
         var totalScore = 0;
-        for (var game = 0 ; game < 5 ; game++) {
+        for (var game = 0 ; game < 1 ; game++) {
             this.play();
             totalScore += this.score;
             //totalScore += this.pieceCount;

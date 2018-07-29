@@ -62,10 +62,11 @@ window.onload = function() {
   let lastTime = 0;
 
   var weights = {
-    heightSum: 0.635,
-    completedLines: 0.626,
-    holes: 0.512,
-    bumpiness: 0.254
+    completedLinesMin: 0.7,
+    completedLinesMax: 0.9,
+    holes: 0.9,
+    bumpiness: 0.3,
+    rowsWithHoles: 0.4
   };
 
   const player = new AI(game, false, weights);
