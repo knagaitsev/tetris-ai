@@ -2,91 +2,55 @@
 	{
 		"generation": 0,
 		"best": {
-			"fitness": 3,
+			"fitness": 945,
 			"weights": {
-				"heightSum": 0.6840194297452646,
-				"completedLines": 0.1620820115614452,
-				"holes": 0.5354118386300271,
-				"bumpiness": 0.421617985587879
+				"heightSum": 0.4918459244424487,
+				"completedLines": 0.7328840743083174,
+				"holes": 0.012709705381196201,
+				"bumpiness": 0.07970596214980907
 			}
 		},
 		"stats": {
-			"maximum": 3,
-			"minimum": 0,
-			"mean": 1.68,
-			"stdev": 0.8541662601625057
+			"maximum": 945,
+			"minimum": 21,
+			"mean": 314.98,
+			"stdev": 250.27909940704197
 		}
 	},
 	{
 		"generation": 1,
 		"best": {
-			"fitness": 3,
+			"fitness": 962,
 			"weights": {
-				"heightSum": 0.6840194297452646,
-				"completedLines": 0.1620820115614452,
-				"holes": 0.5354118386300271,
-				"bumpiness": 0.421617985587879
+				"heightSum": 0.25522112995924107,
+				"completedLines": 0.5602744780108577,
+				"holes": 0.4099001420153563,
+				"bumpiness": 0.13967240578878212
 			}
 		},
 		"stats": {
-			"maximum": 3,
+			"maximum": 962,
 			"minimum": 0,
-			"mean": 1.756,
-			"stdev": 0.8811719468979917
+			"mean": 511.692,
+			"stdev": 239.6145177905546
 		}
 	},
 	{
 		"generation": 2,
 		"best": {
-			"fitness": 3,
+			"fitness": 978,
 			"weights": {
-				"heightSum": 0.6840194297452646,
-				"completedLines": 0.1620820115614452,
-				"holes": 0.5354118386300271,
-				"bumpiness": 0.421617985587879
+				"heightSum": 0.20911654037898275,
+				"completedLines": 0.5907432546908475,
+				"holes": 0.5803145867061494,
+				"bumpiness": 0.19509695905570945
 			}
 		},
 		"stats": {
-			"maximum": 3,
-			"minimum": 0,
-			"mean": 1.808,
-			"stdev": 0.88720685299427
-		}
-	},
-	{
-		"generation": 3,
-		"best": {
-			"fitness": 4,
-			"weights": {
-				"heightSum": 0.6327991884379811,
-				"completedLines": 0.6449753014196504,
-				"holes": 0.8375818781534183,
-				"bumpiness": 0.5684623886480524
-			}
-		},
-		"stats": {
-			"maximum": 4,
-			"minimum": 0,
-			"mean": 1.752,
-			"stdev": 0.930857669034316
-		}
-	},
-	{
-		"generation": 4,
-		"best": {
-			"fitness": 4,
-			"weights": {
-				"heightSum": 0.6327991884379811,
-				"completedLines": 0.6449753014196504,
-				"holes": 0.8375818781534183,
-				"bumpiness": 0.5684623886480524
-			}
-		},
-		"stats": {
-			"maximum": 4,
-			"minimum": 0,
-			"mean": 1.824,
-			"stdev": 0.9038937990715501
+			"maximum": 978,
+			"minimum": 154,
+			"mean": 634.684,
+			"stdev": 194.56861037690538
 		}
 	}
 ]

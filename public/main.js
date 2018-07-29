@@ -62,10 +62,10 @@ window.onload = function() {
   let lastTime = 0;
 
   var weights = {
-    heightSum: Math.random(),
-    completedLines: Math.random(),
-    holes: Math.random(),
-    bumpiness: Math.random()
+    heightSum: 0.635,
+    completedLines: 0.626,
+    holes: 0.512,
+    bumpiness: 0.254
   };
 
   const player = new AI(game, false, weights);

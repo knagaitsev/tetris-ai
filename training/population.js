@@ -20,7 +20,7 @@ class Population {
 
         this.genetic.fitness = function(individual) {
             var fitness = individual.determineFitness();
-            console.log(fitness);
+            //console.log(fitness);
             return fitness;
         };
 

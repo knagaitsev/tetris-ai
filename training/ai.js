@@ -5,10 +5,6 @@ class AI extends Player {
     constructor(canvas, training, weights) {
         super(canvas);
         //parameters: heightSum, completedLines, holes, bumpiness
-        // this.heightSumWeight = 0.510066;
-        // this.completedLinesWeight = 0.760666;
-        // this.holesWeight = 0.35663;
-        // this.bumpinessWeight = 0.184483;
         this.weights = weights;
         this.heightSumWeight = weights.heightSum;
         this.completedLinesWeight = weights.completedLines;
@@ -52,6 +48,9 @@ class AI extends Player {
                 var self = this;
                 var end = false;
                 if (this.moveDown(function(counter, colliding) {
+                    if (self.score % 1000 == 0 && counter > 0) {
+                        console.log(self.score);
+                    }
                     self.score += counter;
                     if (self.scoreElt) {
                         self.scoreElt.innerHTML = self.score;

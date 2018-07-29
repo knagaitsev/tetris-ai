@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tetris</title>
+  <title>AI learns to play Tetris - Loonride</title>
   <meta charset="utf-8" />
+
+  <link rel="shortcut icon" href="/asset//logo.ico">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
   <script src="grid.js"></script>  
   <script src="main.js"></script>
@@ -15,9 +20,47 @@
 </head>
 
 <body>
-  <p>
-    Score: <span id="score">0</span><br />
-  </p>
-  <canvas id="game" width="400" height="800"></canvas>
+  <table>
+    <tr>
+      <td>
+        <div id="settings">
+          <form>
+            <p>Total Height Weight:</p>
+            <input type="text">
+            <p>Completed Lines Weight:</p>
+            <input type="text">
+            <p>Holes Weight:</p>
+            <input type="text">
+            <p>Bumpiness Weight:</p>
+            <input type="text">
+
+            <input type="submit" value="Reset with new Weights">
+
+            <input type="range" min="1" max="100" value="100" class="slider" id="myRange">
+            <small>Use the slider to see the best AI of a generation (older are better)</small>
+            <input type="submit" value="Reset to Generation: 100">
+
+            <label class="container">Show Placement Options
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+          </form>
+          <script src="https://apis.google.com/js/platform.js"></script>
+
+          <div class="g-ytsubscribe" data-channelid="UCOMoPihYOcUZn9cs9OMFhEw" data-layout="full" data-count="default"></div>
+          <!--<img src="/asset/logo-colored-small.png">-->
+        </div>
+      </td>
+      <td>
+        <p>
+          Score: <span id="score">0</span><br />
+        </p>
+        <canvas id="game" width="400" height="800"></canvas>
+        <p>
+          Current Generation: <span id="generation">100</span><br />
+        </p>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
