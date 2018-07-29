@@ -262,7 +262,7 @@ class AI extends Player {
 
     determineFitness() {
         var totalScore = 0;
-        for (var game = 0 ; game < 1 ; game++) {
+        for (var game = 0 ; game < 10 ; game++) {
             this.play();
             totalScore += this.score;
             //totalScore += this.pieceCount;

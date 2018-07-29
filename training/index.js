@@ -9,11 +9,11 @@ var dimensions = {
 //var population = new Population(dimensions);
 
 var weights = {
-    completedLinesMin: 0.7,
-    completedLinesMax: 0.9,
-    holes: 0.9,
-    bumpiness: 0.3,
-    rowsWithHoles: 0.4
+    completedLinesMin: .3,
+    completedLinesMax: 0.93,
+    holes: 0.771,
+    bumpiness: 0.286,
+    rowsWithHoles: 0.844
 };
 var ai = new AI(dimensions, true, weights);
 ai.maxPieceCount = undefined;
