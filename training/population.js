@@ -95,10 +95,13 @@ class Population {
         };
 
         this.genetic.notification = function(pop, gen, stats, isFinished) {
-            var filename = "data/data3.json";
+            var baseFilename = "data3";
+            var filename = "data/" + baseFilename + ".json";
+            var popFilename = "populations/" + baseFilename + ".json";
             var fs = require("fs");
             if (gen == 0) {
                 fs.writeFileSync(filename, "[]");
+                fs.writeFileSync(popFilename, "[]");
             }
             var data = JSON.parse(fs.readFileSync(filename, "utf8"));
             data.push({
@@ -109,8 +112,18 @@ class Population {
                 },
                 stats: stats
             });
+
+            var popData = JSON.parse(fs.readFileSync(popFilename, "utf8"));
+            popData.push({
+                generation: gen,
+                population: pop,
+                stats: stats
+            });
+
             console.log("generation: " + gen + ", score: " + pop[0].fitness);
             fs.writeFileSync(filename, JSON.stringify(data, null, '\t'));
+
+            fs.writeFileSync(popFilename, JSON.stringify(popData, null, '\t'));
         }
 
         var config = {
