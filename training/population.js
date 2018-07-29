@@ -20,7 +20,7 @@ class Population {
 
         this.genetic.fitness = function(individual) {
             var fitness = individual.determineFitness();
-            console.log(fitness);
+            //console.log(fitness);
             return fitness;
         };
 
@@ -80,15 +80,19 @@ class Population {
             return [son, daughter];
         }
 
-        // this.genetic.generation = function(pop, gen, stats) {
-        //     console.log(pop);
-        //     console.log(gen);
-        //     console.log(stats);
-        //     return true;
-        // };
+        this.genetic.generation = function(pop, gen, stats) {
+            // console.log(pop);
+            // console.log(gen);
+            // console.log(stats);
+            var maxScore = 100000;
+            if (pop[0].fitness >= maxScore) {
+                return false;
+            }
+            return true;
+        };
 
         this.genetic.notification = function(pop, gen, stats, isFinished) {
-            var filename = "data/data1.json";
+            var filename = "data/data3.json";
             var fs = require("fs");
             if (gen == 0) {
                 fs.writeFileSync(filename, "[]");
@@ -102,14 +106,14 @@ class Population {
                 },
                 stats: stats
             });
-            console.log(gen);
+            console.log("generation: " + gen + ", score: " + pop[0].fitness);
             fs.writeFileSync(filename, JSON.stringify(data, null, '\t'));
         }
 
         var config = {
-            webWorkers: false,
-            size: 250,
-            iterations: 1000,
+            webWorkers: true,
+            size: 100,
+            iterations: 100000,
             crossover: 0.9,
             mutation: 0.2,
             fittestAlwaysSurvives: true

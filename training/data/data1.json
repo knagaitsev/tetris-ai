@@ -2,91 +2,235 @@
 	{
 		"generation": 0,
 		"best": {
-			"fitness": 3,
+			"fitness": 981,
 			"weights": {
-				"heightSum": 0.6840194297452646,
-				"completedLines": 0.1620820115614452,
-				"holes": 0.5354118386300271,
-				"bumpiness": 0.421617985587879
+				"heightSum": 0.830101567214039,
+				"completedLines": 0.9836908586038957,
+				"holes": 0.6991415629264253,
+				"bumpiness": 0.2876296102886726
 			}
 		},
 		"stats": {
-			"maximum": 3,
-			"minimum": 0,
-			"mean": 1.68,
-			"stdev": 0.8541662601625057
+			"maximum": 981,
+			"minimum": 20,
+			"mean": 321.22,
+			"stdev": 246.4749958920783
 		}
 	},
 	{
 		"generation": 1,
 		"best": {
-			"fitness": 3,
+			"fitness": 978,
 			"weights": {
-				"heightSum": 0.6840194297452646,
-				"completedLines": 0.1620820115614452,
-				"holes": 0.5354118386300271,
-				"bumpiness": 0.421617985587879
+				"heightSum": 0.345739538358357,
+				"completedLines": 0.5269808413961901,
+				"holes": 0.6382911878140743,
+				"bumpiness": 0.15087319813484257
 			}
 		},
 		"stats": {
-			"maximum": 3,
-			"minimum": 0,
-			"mean": 1.756,
-			"stdev": 0.8811719468979917
+			"maximum": 978,
+			"minimum": 50,
+			"mean": 520.756,
+			"stdev": 249.87566601011792
 		}
 	},
 	{
 		"generation": 2,
 		"best": {
-			"fitness": 3,
+			"fitness": 987,
 			"weights": {
-				"heightSum": 0.6840194297452646,
-				"completedLines": 0.1620820115614452,
-				"holes": 0.5354118386300271,
-				"bumpiness": 0.421617985587879
+				"heightSum": 0.5740849985797578,
+				"completedLines": 0.7103279382275045,
+				"holes": 0.8978860036918617,
+				"bumpiness": 0.30671446257679735
 			}
 		},
 		"stats": {
-			"maximum": 3,
-			"minimum": 0,
-			"mean": 1.808,
-			"stdev": 0.88720685299427
+			"maximum": 987,
+			"minimum": 203,
+			"mean": 680.804,
+			"stdev": 171.0208571607569
 		}
 	},
 	{
 		"generation": 3,
 		"best": {
-			"fitness": 4,
+			"fitness": 988,
 			"weights": {
-				"heightSum": 0.6327991884379811,
-				"completedLines": 0.6449753014196504,
-				"holes": 0.8375818781534183,
-				"bumpiness": 0.5684623886480524
+				"heightSum": 0.19635361520391692,
+				"completedLines": 0.9720323996965542,
+				"holes": 0.6681909741082064,
+				"bumpiness": 0.17111915587588644
 			}
 		},
 		"stats": {
-			"maximum": 4,
-			"minimum": 0,
-			"mean": 1.752,
-			"stdev": 0.930857669034316
+			"maximum": 988,
+			"minimum": 297,
+			"mean": 723.74,
+			"stdev": 153.4576697333828
 		}
 	},
 	{
 		"generation": 4,
 		"best": {
-			"fitness": 4,
+			"fitness": 988,
 			"weights": {
-				"heightSum": 0.6327991884379811,
-				"completedLines": 0.6449753014196504,
-				"holes": 0.8375818781534183,
-				"bumpiness": 0.5684623886480524
+				"heightSum": 0.46776712468059034,
+				"completedLines": 0.5753833382919236,
+				"holes": 0.5806252320013126,
+				"bumpiness": 0.17833994512045914
 			}
 		},
 		"stats": {
-			"maximum": 4,
-			"minimum": 0,
-			"mean": 1.824,
-			"stdev": 0.9038937990715501
+			"maximum": 988,
+			"minimum": 249,
+			"mean": 766.284,
+			"stdev": 141.67454021100613
+		}
+	},
+	{
+		"generation": 5,
+		"best": {
+			"fitness": 988,
+			"weights": {
+				"heightSum": 0.4616427911459916,
+				"completedLines": 0.5973299327073389,
+				"holes": 0.40107058435817744,
+				"bumpiness": 0.2112227826333476
+			}
+		},
+		"stats": {
+			"maximum": 988,
+			"minimum": 212,
+			"mean": 771.332,
+			"stdev": 138.58091418373604
+		}
+	},
+	{
+		"generation": 6,
+		"best": {
+			"fitness": 982,
+			"weights": {
+				"heightSum": 0.6840935677381764,
+				"completedLines": 0.5223194723131157,
+				"holes": 0.6506557678237451,
+				"bumpiness": 0.28970006416032873
+			}
+		},
+		"stats": {
+			"maximum": 982,
+			"minimum": 343,
+			"mean": 779.748,
+			"stdev": 136.0016341666526
+		}
+	},
+	{
+		"generation": 7,
+		"best": {
+			"fitness": 988,
+			"weights": {
+				"heightSum": 0.4831362561343002,
+				"completedLines": 0.7170337382160458,
+				"holes": 0.8763841663233104,
+				"bumpiness": 0.1856273324811032
+			}
+		},
+		"stats": {
+			"maximum": 988,
+			"minimum": 321,
+			"mean": 768.084,
+			"stdev": 145.04434130292702
+		}
+	},
+	{
+		"generation": 8,
+		"best": {
+			"fitness": 987,
+			"weights": {
+				"heightSum": 0.7009211475069748,
+				"completedLines": 0.758101676900132,
+				"holes": 0.569177922984684,
+				"bumpiness": 0.22432354194402368
+			}
+		},
+		"stats": {
+			"maximum": 987,
+			"minimum": 283,
+			"mean": 760.208,
+			"stdev": 135.28771095705628
+		}
+	},
+	{
+		"generation": 9,
+		"best": {
+			"fitness": 985,
+			"weights": {
+				"heightSum": 0.63570268947542,
+				"completedLines": 0.6256767888707133,
+				"holes": 0.5121767579983443,
+				"bumpiness": 0.2543934043485182
+			}
+		},
+		"stats": {
+			"maximum": 985,
+			"minimum": 239,
+			"mean": 787.436,
+			"stdev": 128.00052306143124
+		}
+	},
+	{
+		"generation": 10,
+		"best": {
+			"fitness": 988,
+			"weights": {
+				"heightSum": 0.45674410350799816,
+				"completedLines": 0.6046234383085238,
+				"holes": 0.4292986986605983,
+				"bumpiness": 0.2112227826333476
+			}
+		},
+		"stats": {
+			"maximum": 988,
+			"minimum": 344,
+			"mean": 778.508,
+			"stdev": 134.98708803437464
+		}
+	},
+	{
+		"generation": 11,
+		"best": {
+			"fitness": 984,
+			"weights": {
+				"heightSum": 0.6211106473363519,
+				"completedLines": 0.8019800213450403,
+				"holes": 0.3852311335611093,
+				"bumpiness": 0.22647034783469505
+			}
+		},
+		"stats": {
+			"maximum": 984,
+			"minimum": 359,
+			"mean": 773.304,
+			"stdev": 133.12768150914363
+		}
+	},
+	{
+		"generation": 12,
+		"best": {
+			"fitness": 988,
+			"weights": {
+				"heightSum": 0.773134340016628,
+				"completedLines": 0.7884200453098665,
+				"holes": 0.768042253636558,
+				"bumpiness": 0.2599584791163026
+			}
+		},
+		"stats": {
+			"maximum": 988,
+			"minimum": 301,
+			"mean": 790.728,
+			"stdev": 128.35082397865625
 		}
 	}
 ]

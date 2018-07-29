@@ -18,7 +18,8 @@ class AI extends Player {
         this.score = 0;
         this.pieceCount = 0;
 
-        this.maxPieceCount = 500;
+        this.maxPieceCount = undefined;
+        this.maxScore = 100000;
 
         if (training) {
             //this.fitness = this.determineFitness();
@@ -56,7 +57,7 @@ class AI extends Player {
                     if (self.scoreElt) {
                         self.scoreElt.innerHTML = self.score;
                     }
-                    if (colliding) {
+                    if (colliding || self.score >= self.maxScore) {
                         end = true;
                     }
                 })) {
@@ -244,7 +245,7 @@ class AI extends Player {
 
     determineFitness() {
         var totalScore = 0;
-        for (var game = 0 ; game < 5 ; game++) {
+        for (var game = 0 ; game < 1 ; game++) {
             this.play();
             totalScore += this.score;
             //totalScore += this.pieceCount;
