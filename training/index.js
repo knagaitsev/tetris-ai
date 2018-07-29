@@ -17,6 +17,7 @@ var weights = {
 };
 var ai = new AI(dimensions, true, weights);
 ai.maxPieceCount = undefined;
+ai.logPiece1000 = true;
 ai.play();
-console.log("score: " + ai.score);
+console.log("final score: " + ai.score);
 console.log("piece count: " + ai.pieceCount);
