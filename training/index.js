@@ -1,7 +1,7 @@
 var Population = require("./population.js");
 var AI = require("./ai.js");
 
-const addon = require('./build/Release/addon');
+//const addon = require('./build/Release/addon');
 
 // var grid = new addon.Grid(3, 5);
 // grid.setPosition(0, 2, 1);
