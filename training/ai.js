@@ -1,7 +1,7 @@
 var Player = require("./player.js");
 var Grid = require("./grid.js");
 
-const addon = require('./build/Release/addon');
+//const addon = require('./build/Release/addon');
 
 /*
 Importance of clearing lines should increase with height (linear function)

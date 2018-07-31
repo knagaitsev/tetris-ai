@@ -2,7 +2,7 @@ var Vec2 = require("./vec2.js");
 var Grid = require("./grid.js");
 var Piece = require("./piece.js");
 
-const addon = require('./build/Release/addon');
+//const addon = require('./build/Release/addon');
 
 class Player {
   constructor(canvas) {
