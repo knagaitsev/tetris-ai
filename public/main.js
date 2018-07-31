@@ -51,31 +51,151 @@
 //   }
 // }
 
-window.onload = function() {
+$(document).ready(function() {
   const game = document.getElementById('game');
   let score = 0;
   const scoreElt = document.getElementById('score');
-  let level = 1;
-  const levelElt = document.getElementById('level');  
   const context = game.getContext('2d');
 
   let lastTime = 0;
+  var isAi = true;
+
+  var showPlacements = false;
+  var showPlacementsDelay = 35;
 
   var weights = {
-    completedLinesMin: 0.7,
-    completedLinesMax: 0.9,
-    holes: 0.9,
-    bumpiness: 0.3,
-    rowsWithHoles: 0.4
-  };
+    completedLinesMin: .491,
+    completedLinesMax: 0.768,
+    holes: 0.858,
+    bumpiness: 0.393,
+    rowsWithHoles: 0.871
+};
 
-  const player = new AI(game, false, weights);
-  (async function() {
-    while (true) {
-      await player.playAsync();
-      player.resetGame();
+  var player;
+
+  function startAi() {
+
+    function initAi() {
+      var weightsClone = JSON.parse(JSON.stringify(weights));
+      Object.keys(weights).forEach(function(key, index) {
+        var val = $("#" + key).val();
+        if (val == "") {
+          $("#" + key).val(weights[key]);
+        }
+        else {
+          weightsClone[key] = parseFloat(val);
+        }
+      });
+      Object.keys(weightsClone).forEach(function(key, index) {
+        $("#" + key).val(weightsClone[key]);
+      });
+
+      scoreElt.innerHTML = 0;
+      isAi = true;
+      player = new AI(game, false, weightsClone);
+      if (showPlacements) {
+        player.testMovesDelay = showPlacementsDelay;
+      }
+      else {
+        player.testMovesDelay = 0;
+      }
     }
-  })();
+
+    if (player && isAi) {
+      player.reset(function() {
+        initAi();
+      });
+    }
+    else if (!player || !isAi) {
+      initAi();
+      (async function() {
+        while (isAi) {
+          player.resetGame();
+          await player.playAsync();
+        }
+      })();
+    }
+    else if (!isAi) {
+      initAi();
+    }
+  }
+
+  function startNormal() {
+    scoreElt.innerHTML = 0;
+    isAi = false;
+    player.reset(function() {
+      player = new Player(game);
+    });
+  }
+
+  window.onkeydown = function(event) {
+    function callback(counter, colliding) {
+      score += counter;
+      if (colliding) {
+        score = 0;
+      }
+      scoreElt.innerHTML = score;  
+    }
+    if (!isAi) {
+      if (event.code === 'ArrowLeft') {
+        player.move(-1, 0);
+      } else if (event.code === 'ArrowRight') {
+        player.move(1, 0);
+      } else if (event.code === 'ArrowDown') {
+        player.moveDown(callback);
+      } else if (event.code === 'ArrowUp') {
+        player.rotate();
+      }
+    }
+  }
+
+  $("form").submit(function(e) {
+    e.preventDefault();
+  });
+
+  $("#play").click(function() {
+    if (isAi) {
+      $("#generation").text("Human!");
+      $(this).val("Play AI");
+      startNormal();
+    }
+    else {
+      $("#generation").text("User defined");
+      $(this).val("Play Yourself");
+      startAi();
+    }
+  });
+
+  $("#resetWeights").click(function() {
+    $("#generation").text("User defined");
+    $("#play").val("Play Yourself");
+    startAi();
+  });
+
+  $("#generationSlider").on("input", function() {
+    $("#resetGeneration").val("Reset to Generation: " + $(this).val());
+  });
+
+  $("#resetGeneration").click(function() {
+    var gen = $("#generationSlider").val();
+    $("#generation").text(gen);
+    startAi();
+  });
+
+  $("#showPlacements").on("input", function() {
+    showPlacements = $(this).prop("checked");
+
+    if (isAi) {
+      if (showPlacements) {
+        player.testMovesDelay = showPlacementsDelay;
+      }
+      else {
+        player.testMovesDelay = 0;
+      }
+    }
+  });
+
+  startAi();
 
   function update(time = 0) {
 
@@ -84,16 +204,19 @@ window.onload = function() {
     const deltaTime = time - lastTime;
 
     player.draw();
-    player.updateTimer(deltaTime, function(counter, colliding) {});
+    if (!isAi) {
+      player.updateTimer(deltaTime, function(counter, colliding) {
+        score += counter;
+        if (colliding) {
+          score = 0;
+        }
+        scoreElt.innerHTML = score;  
+      });
+    }
 
     lastTime = time;
     requestAnimationFrame(update);
   } 
 
   update();
-
-  // var population = new Population({
-  //   width: game.width,
-  //   height: game.height
-  // });
-}
+});

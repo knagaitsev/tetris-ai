@@ -95,7 +95,7 @@ class Population {
         };
 
         this.genetic.notification = function(pop, gen, stats, isFinished) {
-            var baseFilename = "data4";
+            var baseFilename = "data5";
             var filename = "data/" + baseFilename + ".json";
             var popFilename = "populations/" + baseFilename + ".json";
             var fs = require("fs");
@@ -128,9 +128,9 @@ class Population {
 
         var config = {
             webWorkers: true,
-            size: 150,
+            size: 100,
             iterations: 100000,
-            crossover: 0.9,
+            crossover: 0.8,
             mutation: 0.2,
             fittestAlwaysSurvives: true
         };

@@ -2,6 +2,8 @@ var Vec2 = require("./vec2.js");
 var Grid = require("./grid.js");
 var Piece = require("./piece.js");
 
+const addon = require('./build/Release/addon');
+
 class Player {
   constructor(canvas) {
     this.PIECE_POOL = 'OISZLJT';
@@ -92,6 +94,16 @@ class Player {
     });
   }
 
+  removeFromGrid() {
+    this.piece.representation.forEach((arr, y) => {
+      arr.forEach((val, x) => {
+        if (val !== 0) {
+          this.grid.setPosition(x + this.posInGridPositions.x, y + this.posInGridPositions.y, 0);
+        }
+      });
+    });
+  }
+
   rotateGrid(grid, dir = -1) {
     grid.forEach((arr, y) => {
       for (let x = 0; x < y; x++) {
@@ -128,7 +140,7 @@ class Player {
     this.piece.representation.forEach((arr, y) => {
       arr.forEach((val, x) => {
         if (val !== 0 &&
-            (this.grid.grid[y + this.posInGridPositions.y] &&
+            (y + this.posInGridPositions.y < this.grid.getGridHeight() &&
              this.grid.getPosition(x + this.posInGridPositions.x, y + this.posInGridPositions.y)) !== 0) {
           collision = true;
         }

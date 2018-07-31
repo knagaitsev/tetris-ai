@@ -28,7 +28,7 @@ class Player {
   updateTimer(deltaTime, callback) {
     this.timer += deltaTime;
     if (this.timer > this.interval) {
-      //this.moveDown(callback);
+      this.moveDown(callback);
     }
   }
 

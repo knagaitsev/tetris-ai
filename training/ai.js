@@ -1,6 +1,8 @@
 var Player = require("./player.js");
 var Grid = require("./grid.js");
 
+const addon = require('./build/Release/addon');
+
 /*
 Importance of clearing lines should increase with height (linear function)
 Cleared lines should be removed when considering holes and bumpiness
@@ -139,7 +141,16 @@ class AI extends Player {
         var bestRotation;
         var bestScore = null;
 
-        for (var rotation = 0 ; rotation < 4 ; rotation++) {
+        var maxRotation = 4;
+        var label = this.piece.label;
+        if (label == "O") {
+            maxRotation = 1;
+        }
+        else if (label == "I" || label == "S" || label == "Z") {
+            maxRotation = 2;
+        }
+
+        for (var rotation = 0 ; rotation < maxRotation ; rotation++) {
             var x = 0;
             while (this.move(-1, 0)) {
                 x -= 1;
@@ -153,7 +164,7 @@ class AI extends Player {
                         break;
                     }
                 }
-                var gridClone = JSON.parse(JSON.stringify(this.grid.grid));
+                //var gridClone = JSON.parse(JSON.stringify(this.grid.grid));
                 this.putInGrid();
                 var score = this.getMoveScore();
                 if (bestScore === null || score > bestScore) {
@@ -162,11 +173,16 @@ class AI extends Player {
                     bestScore = score;
                 }
                 //await this.delay(100);
-                this.grid.grid = gridClone;
+                //this.grid.grid = gridClone;
+                this.removeFromGrid();
                 this.resetY();
                 x += 1;
             } while (this.move(1, 0));
             this.resetToTop();
+            this.rotate();
+        }
+
+        for (var i = maxRotation ; i < 4 ; i++) {
             this.rotate();
         }
 
@@ -184,6 +200,7 @@ class AI extends Player {
         var bestScore = null;
 
         for (var rotation = 0 ; rotation < 4 ; rotation++) {
+
             var x = 0;
             while (this.move(-1, 0)) {
                 x -= 1;

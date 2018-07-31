@@ -29,7 +29,7 @@ table {
 
 #settings p {
   font-size: 14px;
-  margin-top: 10px;
+  margin-top: 6px;
   margin-bottom: 0px;
 }
 
@@ -47,12 +47,12 @@ table {
   font-weight: 600;
 }
 
-#settings input[type="text"] {
-  padding: 5px 10px;
+#settings input[type="number"] {
+  padding: 3px 10px;
 }
 
 #settings input[type="submit"] {
-  padding: 12px 0px;
+  padding: 6px 0px;
   margin-top: 15px;
   margin-bottom: 15px;
   color: white;

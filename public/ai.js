@@ -22,6 +22,10 @@ class AI extends Player {
         this.rotateDelay = 10;
         this.downDelay = 0;
         this.testMovesDelay = 0;
+
+        this.startReset = false;
+
+        this.resetCallback;
     }
 
     delay(ms) {
@@ -50,7 +54,7 @@ class AI extends Player {
                     if (self.scoreElt) {
                         self.scoreElt.innerHTML = self.score;
                     }
-                    if (colliding || self.score >= self.maxScore) {
+                    if (colliding || self.score >= self.maxScore || self.startReset) {
                         end = true;
                     }
                 })) {
@@ -94,11 +98,15 @@ class AI extends Player {
                     if (self.scoreElt) {
                         self.scoreElt.innerHTML = self.score;
                     }
-                    if (colliding) {
+                    if (colliding || self.startReset) {
+                        self.scoreElt.innerHTML = 0;
                         end = true;
                     }
                 })) {
                     if (end) {
+                        if (typeof self.resetCallback == "function") {
+                            self.resetCallback();
+                        }
                         return self.score;
                     }
                     break;
@@ -259,5 +267,10 @@ class AI extends Player {
         }
 
         return totalScore;
+    }
+
+    reset(callback) {
+        this.startReset = true;
+        this.resetCallback = callback;
     }
 }

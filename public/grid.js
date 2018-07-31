@@ -16,19 +16,13 @@ class Grid {
 
   sweep(callback, boolean) {
     let counter = 0;
-    for (let y = this.grid.length-1; y >= 0; y--) {
-      const arr = this.grid[y];
-      
-      let full = true;
-      arr.forEach((val, x) => {
-        if (val === 0) {
-          full = false;
-        }
-      });
+    for (let y = 0; y < this.grid.length; y++) {
 
-      if (full) {
-        const row = this.grid.splice(y, 1)[0].fill(0);
-        this.grid.unshift(row);
+      if (this.isRowFull(y)) {
+        for (var i = y ; i > 0 ; i--) {
+          this.grid[i] = JSON.parse(JSON.stringify(this.grid[i-1]));
+        }
+        this.grid[0].fill(0);
         counter++;
       }
     }
@@ -109,26 +103,34 @@ class Grid {
 
     return heightSum;
   }
-  getBumpiness() {
-    var gridClone = JSON.parse(JSON.stringify(this.grid));
-    this.sweep(function(counter, boolean) {}, false);
 
-    var bumpiness = 0;
-    var prevHeight = -1;
-    for (var x = 0 ; x < this.grid[0].length ; x++) {
-      for (var y = 0 ; y < this.grid.length ; y++) {
-        if (this.grid[y][x] != 0 || y == this.grid.length - 1) {
-          var height = (this.grid.length - y);
-          if (prevHeight != -1) {
-            bumpiness += Math.abs(height - prevHeight);
-          }
-          prevHeight = height;
-          break;
-        }
+  getColHeight(x) {
+    var height = 0;
+    for (var y = 0 ; y < this.grid.length ; y++) {
+      var full = this.isRowFull(y);
+      if(this.grid[y][x] != 0 && height == 0 && !full) {
+        height = this.grid.length - y;
+
+      }
+      if (height > 0 && full) {
+        height--;
       }
     }
 
-    this.grid = gridClone;
+    return height;
+  }
+
+  getBumpiness() {
+    var bumpiness = 0;
+    var prevHeight = -1;
+    for (var x = 0 ; x < this.grid[0].length ; x++) {
+      var height = this.getColHeight(x);
+      if (prevHeight != -1) {
+        bumpiness += Math.abs(height - prevHeight);
+      }
+
+      prevHeight = height;
+    }
 
     return bumpiness;
   }

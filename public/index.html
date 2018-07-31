@@ -33,25 +33,26 @@
       <td>
         <div id="settings">
           <form>
-            <p>Lines Min Weight:</p>
-            <input type="text">
-            <p>Lines Max Weight:</p>
-            <input type="text">
+            <input type="submit" value="Play Yourself" id="play">
+            <p>Lines Bottom Weight:</p>
+            <input type="number" min="0" max="20" step="any" id="completedLinesMin">
+            <p>Lines Top Weight:</p>
+            <input type="number" min="0" max="20" step="any" id="completedLinesMax">
             <p>Holes Weight:</p>
-            <input type="text">
+            <input type="number" min="0" max="20" step="any" id="holes">
             <p>Bumpiness Weight:</p>
-            <input type="text">
+            <input type="number" min="0" max="20" step="any" id="bumpiness">
             <p>Rows w/ Holes Weight:</p>
-            <input type="text">
+            <input type="number" min="0" max="20" step="any" id="rowsWithHoles">
 
-            <input type="submit" value="Reset with new Weights">
+            <input type="submit" value="Reset with new Weights" id="resetWeights">
 
-            <input type="range" min="1" max="100" value="100" class="slider" id="myRange">
+            <input type="range" min="0" max="100" value="100" class="slider" id="generationSlider">
             <small>Use the slider to see the best AI of a generation (older are better)</small>
-            <input type="submit" value="Reset to Generation: 100">
+            <input type="submit" value="Reset to Generation: 100" id="resetGeneration">
 
             <label class="container">Show Placement Options
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" id="showPlacements">
                 <span class="checkmark"></span>
               </label>
           </form>
