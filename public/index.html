@@ -34,22 +34,22 @@
         <div id="settings">
           <form>
             <input type="submit" value="Play Yourself" id="play">
-            <p>Lines Bottom Weight:</p>
+            <p>Cleared Lines Bottom Weight:</p>
             <input type="number" min="0" max="20" step="any" id="completedLinesMin">
-            <p>Lines Top Weight:</p>
+            <p>Cleared Lines Top Weight:</p>
             <input type="number" min="0" max="20" step="any" id="completedLinesMax">
             <p>Holes Weight:</p>
             <input type="number" min="0" max="20" step="any" id="holes">
             <p>Bumpiness Weight:</p>
             <input type="number" min="0" max="20" step="any" id="bumpiness">
-            <p>Rows w/ Holes Weight:</p>
-            <input type="number" min="0" max="20" step="any" id="rowsWithHoles">
+            <!--<p>Rows w/ Holes Weight:</p>-->
+            <input type="number" min="0" max="20" step="any" id="rowsWithHoles" style="display: none">
 
             <input type="submit" value="Reset with new Weights" id="resetWeights">
 
-            <input type="range" min="0" max="100" value="100" class="slider" id="generationSlider">
+            <input type="range" min="0" max="27" value="27" class="slider" id="generationSlider">
             <small>Use the slider to see the best AI of a generation (older are generally better)</small>
-            <input type="submit" value="Reset to Generation: 100" id="resetGeneration">
+            <input type="submit" value="Reset to Generation: 27" id="resetGeneration">
 
             <label class="container">Show Placement Options
                 <input type="checkbox" id="showPlacements">
@@ -62,13 +62,13 @@
           <!--<img src="/asset/logo-colored-small.png">-->
         </div>
       </td>
-      <td>
+      <td class="game-container">
         <p>
           Score: <span id="score">0</span><br />
         </p>
         <canvas id="game" width="400" height="800"></canvas>
         <p>
-          Current Generation: <span id="generation">100</span><br />
+          Current Generation: <span id="generation">25</span><br />
         </p>
       </td>
     </tr>

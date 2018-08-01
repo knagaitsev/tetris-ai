@@ -18,8 +18,8 @@ class AI extends Player {
             this.scoreElt = document.getElementById('score');
         }
 
-        this.moveDelay = 50;
-        this.rotateDelay = 10;
+        this.moveDelay = 10;
+        this.rotateDelay = 5;
         this.downDelay = 0;
         this.testMovesDelay = 0;
 
@@ -180,7 +180,16 @@ class AI extends Player {
         var bestRotation;
         var bestScore = null;
 
-        for (var rotation = 0 ; rotation < 4 ; rotation++) {
+        var maxRotation = 4;
+        var label = this.piece.label;
+        if (label == "O") {
+            maxRotation = 1;
+        }
+        else if (label == "I" || label == "S" || label == "Z") {
+            maxRotation = 2;
+        }
+
+        for (var rotation = 0 ; rotation < maxRotation ; rotation++) {
             var x = 0;
             while (this.move(-1, 0)) {
                 x -= 1;
@@ -212,6 +221,9 @@ class AI extends Player {
         }
 
         this.resetToTop();
+        for (var i = maxRotation ; i < 4 ; i++) {
+            this.rotate();
+        }
 
         return {
             x: bestX,

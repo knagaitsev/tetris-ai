@@ -1,5 +1,6 @@
 class Piece {
   constructor(label) {
+    this.label = label;
     if (label === 'O') {
       this.representation = [[1, 1],
                              [1, 1]];

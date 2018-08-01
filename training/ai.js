@@ -278,9 +278,17 @@ class AI extends Player {
     }
 
     determineFitness() {
+        var maxScore = 0;
+        var minScore = 0;
         var totalScore = 0;
         for (var game = 0 ; game < 10 ; game++) {
             this.play();
+            if (this.score > maxScore) {
+                maxScore = this.score;
+            }
+            if (this.score < minScore || minScore == 0) {
+                minScore = this.score;
+            }
             totalScore += this.score;
             //totalScore += this.pieceCount;
             this.resetGame();

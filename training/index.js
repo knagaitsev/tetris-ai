@@ -29,15 +29,14 @@ var dimensions = {
 //var population = new Population(dimensions);
 
 var weights = {
-    completedLinesMin: .491,
-    completedLinesMax: 0.768,
-    holes: 0.858,
-    bumpiness: 0.393,
-    rowsWithHoles: 0.871
+    "completedLinesMin": 0.5500,
+    "completedLinesMax": 0.7806,
+    "holes": 0.8208,
+    "bumpiness": 0.3924,
+    "rowsWithHoles": 0.8810
 };
 var ai = new AI(dimensions, true, weights);
 ai.maxPieceCount = undefined;
-ai.logPiece1000 = true;
 var time = Date.now();
 var fitness = ai.determineFitness();
 var newTime = Date.now();

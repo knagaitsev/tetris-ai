@@ -73,20 +73,27 @@ $(document).ready(function() {
 
   var player;
 
-  function startAi() {
+  function startAi(genWeights) {
 
     function initAi() {
-      var weightsClone = JSON.parse(JSON.stringify(weights));
-      Object.keys(weights).forEach(function(key, index) {
-        var val = $("#" + key).val();
-        if (val == "") {
-          $("#" + key).val(weights[key]);
-        }
-        else {
-          weightsClone[key] = parseFloat(val);
-        }
-      });
+      var weightsClone;
+      if (genWeights) {
+        weightsClone = genWeights;
+      }
+      else {
+        weightsClone = JSON.parse(JSON.stringify(weights));
+        Object.keys(weights).forEach(function(key, index) {
+          var val = $("#" + key).val();
+          if (val == "") {
+            $("#" + key).val(weights[key]);
+          }
+          else {
+            weightsClone[key] = parseFloat(val);
+          }
+        });
+      }
       Object.keys(weightsClone).forEach(function(key, index) {
+        weightsClone[key] = Math.round(weightsClone[key] * 4000) / 4000;
         $("#" + key).val(weightsClone[key]);
       });
 
@@ -176,10 +183,19 @@ $(document).ready(function() {
     $("#resetGeneration").val("Reset to Generation: " + $(this).val());
   });
 
+  function startAiFromGen(gen, cb) {
+    $("#generation").text(gen);
+    $.get("data/final.json", null, function(data) {
+      startAi(data[gen].best.weights);
+      if (cb) {
+        cb();
+      }
+    }, "json");
+  }
+
   $("#resetGeneration").click(function() {
     var gen = $("#generationSlider").val();
-    $("#generation").text(gen);
-    startAi();
+    startAiFromGen(gen);
   });
 
   $("#showPlacements").on("input", function() {
@@ -195,7 +211,7 @@ $(document).ready(function() {
     }
   });
 
-  startAi();
+  startAiFromGen(27, update);
 
   function update(time = 0) {
 
@@ -216,7 +232,5 @@ $(document).ready(function() {
 
     lastTime = time;
     requestAnimationFrame(update);
-  } 
-
-  update();
+  }
 });
