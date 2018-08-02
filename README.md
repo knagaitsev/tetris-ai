@@ -52,3 +52,9 @@ Then go into the *public* directory and do:
 ```bash
 live-server
 ```
+
+### Sources that I built off of
+
+tetris-js: https://github.com/simon-tiger/tetris-js
+
+genetic-js: https://github.com/subprotocol/genetic-js
