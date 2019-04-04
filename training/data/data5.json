@@ -1,0 +1,154 @@
+[
+	{
+		"generation": 0,
+		"best": {
+			"fitness": 8768,
+			"weights": {
+				"completedLinesMin": 0.0788975427725862,
+				"completedLinesMax": 0.8860124496516966,
+				"holes": 0.8227024019221831,
+				"bumpiness": 0.34827140775415333,
+				"rowsWithHoles": 0.7334439355602238
+			}
+		},
+		"stats": {
+			"maximum": 8768,
+			"minimum": 26,
+			"mean": 1318.95,
+			"stdev": 2040.695216709246
+		}
+	},
+	{
+		"generation": 1,
+		"best": {
+			"fitness": 13956,
+			"weights": {
+				"completedLinesMin": 0.2657167513525276,
+				"completedLinesMax": 0.5832834892435501,
+				"holes": 0.1636816854789357,
+				"bumpiness": 0.12824408967289225,
+				"rowsWithHoles": 0.5772740577270339
+			}
+		},
+		"stats": {
+			"maximum": 13956,
+			"minimum": 193,
+			"mean": 3464.29,
+			"stdev": 3211.179276511979
+		}
+	},
+	{
+		"generation": 2,
+		"best": {
+			"fitness": 15972,
+			"weights": {
+				"completedLinesMin": 0.6250430166285201,
+				"completedLinesMax": 0.3872265250835699,
+				"holes": 0.9362043543994836,
+				"bumpiness": 0.3570904276913369,
+				"rowsWithHoles": 0.7648281910298471
+			}
+		},
+		"stats": {
+			"maximum": 15972,
+			"minimum": 618,
+			"mean": 5534.05,
+			"stdev": 3421.1137495704525
+		}
+	},
+	{
+		"generation": 3,
+		"best": {
+			"fitness": 13730,
+			"weights": {
+				"completedLinesMin": 0.2819898617000304,
+				"completedLinesMax": 0.44240685792629075,
+				"holes": 0.1427603962457591,
+				"bumpiness": 0.2559441790236803,
+				"rowsWithHoles": 0.9707245405325373
+			}
+		},
+		"stats": {
+			"maximum": 13730,
+			"minimum": 544,
+			"mean": 6185.74,
+			"stdev": 3035.655311856074
+		}
+	},
+	{
+		"generation": 4,
+		"best": {
+			"fitness": 15059,
+			"weights": {
+				"completedLinesMin": 0.009526542312846296,
+				"completedLinesMax": 0.8906372690927701,
+				"holes": 0.8460736959244796,
+				"bumpiness": 0.3718187437342524,
+				"rowsWithHoles": 0.7583283829834477
+			}
+		},
+		"stats": {
+			"maximum": 15059,
+			"minimum": 1073,
+			"mean": 6801.3,
+			"stdev": 3073.6211526471516
+		}
+	},
+	{
+		"generation": 5,
+		"best": {
+			"fitness": 20190,
+			"weights": {
+				"completedLinesMin": 0.1599097171019665,
+				"completedLinesMax": 0.8916861474183436,
+				"holes": 0.7994102437420038,
+				"bumpiness": 0.29467429989266364,
+				"rowsWithHoles": 0.7672585540285557
+			}
+		},
+		"stats": {
+			"maximum": 20190,
+			"minimum": 1613,
+			"mean": 7253.68,
+			"stdev": 3209.0522522389697
+		}
+	},
+	{
+		"generation": 6,
+		"best": {
+			"fitness": 15171,
+			"weights": {
+				"completedLinesMin": 0.6702032688902962,
+				"completedLinesMax": 0.9381043090726642,
+				"holes": 0.8006985326872091,
+				"bumpiness": 0.3341699289185789,
+				"rowsWithHoles": 0.7453530347214191
+			}
+		},
+		"stats": {
+			"maximum": 15171,
+			"minimum": 2331,
+			"mean": 8071.62,
+			"stdev": 2731.3567206793036
+		}
+	},
+	{
+		"generation": 7,
+		"best": {
+			"fitness": 14667,
+			"weights": {
+				"completedLinesMin": 0.0788975427725862,
+				"completedLinesMax": 0.6306572806230758,
+				"holes": 0.7978336768274797,
+				"bumpiness": 0.3617051103980674,
+				"rowsWithHoles": 0.740081603403671
+			}
+		},
+		"stats": {
+			"maximum": 14667,
+			"minimum": 2126,
+			"mean": 8322.96,
+			"stdev": 2730.774186636457
+		}
+	}
+]
