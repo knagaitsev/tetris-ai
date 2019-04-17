@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\public\\asset",
+    "\\public\\lib",
+    "\\training",
+    "\\training\\build",
+    "\\training\\build\\Release",
+    "\\training\\node_modules\\clone"
+  ],
+  "SelectedNode": "\\training\\build\\binding.sln",
+  "PreviewInSolutionExplorer": false
+}
