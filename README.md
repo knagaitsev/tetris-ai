@@ -1,6 +1,6 @@
 Video: https://youtu.be/pXTfgw9A08w
 
-Interactive Demo: https://loonride.github.io/tetris-ai/public/
+Interactive Demo: https://knagaitsev.github.io/tetris-ai/public/
 
 ### Tetris AI
 
